@@ -9,9 +9,10 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(cors());
 
-app.get('/status', (req, res) => {
-  res.send({
-    message: "hello world"
+app.post('/register', (request, response) => {
+  console.log(request);
+  response.send({
+    message: `${request.body.username}, a confirmation email has been sent to ${request.body.email}. Thanks for registering!`
   });
 });
 
